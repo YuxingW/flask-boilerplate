@@ -1,6 +1,11 @@
-FROM python:3.7
+FROM ubuntu:20.04
 
-RUN apt-get update
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install python3 python3-pip -y
+
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get install -y --no-install-recommends \
         libatlas-base-dev gfortran nginx supervisor
 
